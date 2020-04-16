@@ -16,6 +16,7 @@ if [ $? = 0 ]; then
 
 	# Remove old shell bluetooth script if it exists
 	rm -f "${MUNKIPATH}preflight.d/bluetooth.sh"
+
 else
 	echo "Failed to download all required components!"
 	rm -f "${MUNKIPATH}preflight.d/bluetooth.{sh,py}"
@@ -23,5 +24,3 @@ else
 	# Signal that we had an error
 	ERR=1
 fi
-
-
