@@ -1,0 +1,24 @@
+detail_widgets:
+    bluetooth_detail:
+        view: bluetooth_detail_widget
+client_tabs:
+    bluetooth-tab:
+        view: bluetooth_tab
+        i18n: bluetooth.bluetooth
+        badge: bluetooth-cnt
+reports:
+    bluetooth_report:
+        view: bluetooth_report
+        i18n: bluetooth.reporttitle
+listings:
+    bluetooth:
+        view: bluetooth_listing
+        i18n: bluetooth.bluetooth
+    bluetooth_devices:
+        view: bluetooth_devices_listing
+        i18n: bluetooth.bluetooth_devices
+widgets:
+    bluetooth_battery:
+        view: bluetooth_battery_widget
+    bluetooth_power_state:
+        view: bluetooth_power_state_widget
