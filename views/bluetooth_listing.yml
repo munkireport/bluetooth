@@ -1,0 +1,21 @@
+i18n_title: bluetooth.reporttitle
+not_null_column: machine_address
+js_link: module/bluetooth/js/bluetooth
+table:
+  - column: machine.computer_name
+    i18n_header: listing.computername
+    formatter: clientDetail
+  - column: reportdata.serial_number
+    i18n_header: serial
+  - {i18n_header: bluetooth.machine_address, column: bluetooth.machine_address}
+  - {i18n_header: bluetooth.power, column: bluetooth.power, formatter: binaryOnOff}
+  - {i18n_header: bluetooth.discoverable, column: bluetooth.discoverable, formatter: binaryYesNo}
+  - {i18n_header: bluetooth.supports_lowenergy, column: bluetooth.supports_lowenergy, formatter: binaryYesNo}
+  - {i18n_header: bluetooth.supports_airdrop, column: bluetooth.supports_airdrop, formatter: formatBluetoothSupported}
+  - {i18n_header: bluetooth.supports_instanthotspot, column: bluetooth.supports_instanthotspot, formatter: formatBluetoothSupported}
+  - {i18n_header: bluetooth.supports_handoff, column: bluetooth.supports_handoff, formatter: formatBluetoothSupported}
+  - {i18n_header: bluetooth.remotewake, column: bluetooth.remotewake, formatter: binaryYesNo}
+  - {i18n_header: bluetooth.autoseek_keyboard, column: bluetooth.autoseek_keyboard, formatter: binaryYesNo}
+  - {i18n_header: bluetooth.autoseek_pointing, column: bluetooth.autoseek_pointing, formatter: binaryYesNo}
+  - {i18n_header: bluetooth.connectable, column: bluetooth.connectable, formatter: binaryYesNo}
+  - {i18n_header: bluetooth.apple_bluetooth_version, column: bluetooth.apple_bluetooth_version}
