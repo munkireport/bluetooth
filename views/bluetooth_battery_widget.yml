@@ -7,3 +7,4 @@ listing_link: /show/listing/bluetooth/bluetooth
 search_key: device_name
 url_type: client_detail
 i18nEmptyResult: bluetooth.all_ok
+badge: percent
