@@ -39,6 +39,7 @@ class Bluetooth_controller extends Module_controller
                 ->selectRaw("COUNT(CASE WHEN `power` = '0' THEN 1 END) AS 'off'")
                 ->filter()
                 ->first()
+                ->toLabelCount()
         );
     }
 
@@ -54,6 +55,7 @@ class Bluetooth_controller extends Module_controller
                 ->where('batterypercent', '<=', 15)
                 ->filter()
                 ->get()
+                ->toArray()
         );
    }
 
@@ -68,6 +70,7 @@ class Bluetooth_controller extends Module_controller
                 ->where('bluetooth.serial_number', $serial_number)
                 ->filter()
                 ->get()
+                ->toArray()
         );
    }
 } // End class Bluetooth_controller
