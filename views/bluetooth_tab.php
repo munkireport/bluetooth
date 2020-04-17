@@ -11,7 +11,7 @@ $(document).on('appReady', function(){
         if(!data[0]){
             $('#bluetooth-msg').text(i18n.t('no_data'));
             $('#bluetooth-header').removeClass('hide');
-            $('table.mr-bluetooth-table').append($('<tr>')
+            $('#mr-bluetooth-table').append($('<tr>')
                                             .append($('<td>')
                                                 .attr('colspan', 2)
                                                 .text(i18n.t('no_data'))))
@@ -43,19 +43,19 @@ $(document).on('appReady', function(){
                     else if( prop == 'power' && d[prop] == -1){
                        $('#bluetooth-msg').text(i18n.t('bluetooth.no_bluetooth'));
                        $('#bluetooth-cnt').text('')
-                       $('table.mr-bluetooth-table').prepend('<tr><th>'+i18n.t('bluetooth.no_bluetooth')+'</th><td></td></tr>')
+                       $('#mr-bluetooth-table').prepend('<tr><th>'+i18n.t('bluetooth.no_bluetooth')+'</th><td></td></tr>')
                        return false
                     }
 
                     else if((prop == 'power') && d[prop] == 1){
                        inforows = inforows + '<tr><th>'+i18n.t('bluetooth.'+prop)+'</th><td>'+i18n.t('on')+'</td></tr>';
                        $('#bluetooth-cnt').text(i18n.t('on'));
-                       $('table.mr-bluetooth-table').prepend('<tr><th>'+i18n.t('bluetooth.power')+'</th><td>'+i18n.t('on')+'</td></tr>')
+                       $('#mr-bluetooth-table').prepend('<tr><th>'+i18n.t('bluetooth.power')+'</th><td>'+i18n.t('on')+'</td></tr>')
                     }
                     else if((prop == 'power') && d[prop] == 0){
                        inforows = inforows + '<tr><th>'+i18n.t('bluetooth.'+prop)+'</th><td>'+i18n.t('off')+'</td></tr>';
                        $('#bluetooth-cnt').text(i18n.t('off'));
-                       $('table.mr-bluetooth-table').prepend('<tr><th>'+i18n.t('bluetooth.power')+'</th><td>'+i18n.t('off')+'</td></tr>')
+                       $('#mr-bluetooth-table').prepend('<tr><th>'+i18n.t('bluetooth.power')+'</th><td>'+i18n.t('off')+'</td></tr>')
                     }
 
 
@@ -90,7 +90,7 @@ $(document).on('appReady', function(){
                 }
                 
                 // Fill in the client detail widget
-                $('table.mr-bluetooth-table').append(detail_rows)
+                $('#mr-bluetooth-table').append(detail_rows)
 
                 $('#bluetooth-tab')
 
