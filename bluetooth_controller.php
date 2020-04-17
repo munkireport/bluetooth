@@ -51,7 +51,7 @@ class Bluetooth_controller extends Module_controller
      public function bluetooth_low_battery()
      {
         jsonView(
-            Bluetooth_model::select()
+            Bluetooth_model::selectRaw('bluetooth.serial_number, batterypercent as percent, device_name')
                 ->where('batterypercent', '<=', 15)
                 ->filter()
                 ->get()
