@@ -6,8 +6,8 @@ listing_link: /show/listing/bluetooth/bluetooth
 icon: fa-bluetooth
 buttons:
   - label: off
-    i18n_label: Off
+    i18n_label: off
     class: btn-info 
   - label: on
-    i18n_label: On
+    i18n_label: on
     class: btn-success
