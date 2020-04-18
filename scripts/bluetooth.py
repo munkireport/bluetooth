@@ -57,14 +57,14 @@ def flatten_bluetooth_info(obj):
                             device['autoseek_pointing'] = to_bool(obj_local[item_local])
                         elif item_local == 'general_connectable':
                             device['connectable'] = to_bool(obj_local[item_local])
-                        elif item_local == 'general_discoverable':
+                        elif item_local == 'general_discoverable' or item_local == 'device_discoverable':
                             device['discoverable'] = to_bool(obj_local[item_local])
                         elif item_local == 'general_hardware_transport':
                             device['hardware_transport'] = obj_local[item_local]
                         elif item_local == 'general_name':
                             device['machine_name'] = obj_local[item_local]
 
-                        elif item_local == 'general_power':
+                        elif item_local == 'general_power' or item_local == 'device_power':
                             device['power'] = to_bool(obj_local[item_local])
 
                         elif item_local == 'general_remoteWake':
