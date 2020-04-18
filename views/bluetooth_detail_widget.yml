@@ -1,0 +1,5 @@
+type: table
+i18n_title: bluetooth.bluetooth
+table_id: mr-bluetooth-table
+icon: fa-bluetooth-b
+table:

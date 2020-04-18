@@ -1,0 +1,13 @@
+type: button
+widget_id: bluetooth_power-widget
+api_url: /module/bluetooth/get_power_state
+i18n_title: bluetooth.bluetooth_power
+listing_link: /show/listing/bluetooth/bluetooth
+icon: fa-bluetooth
+buttons:
+  - label: off
+    i18n_label: off
+    class: btn-info 
+  - label: on
+    i18n_label: on
+    class: btn-success

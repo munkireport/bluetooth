@@ -1,0 +1,10 @@
+type: scrollbox
+widget_id: bluetooth-battery-widget
+api_url: /module/bluetooth/bluetooth_low_battery
+i18n_title: bluetooth.bluetooth_battery_widget
+icon: fa-bolt
+listing_link: /show/listing/bluetooth/bluetooth
+search_key: device_name
+url_type: client_detail
+i18nEmptyResult: bluetooth.all_ok
+badge: percent

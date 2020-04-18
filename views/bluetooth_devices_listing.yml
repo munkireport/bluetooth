@@ -1,0 +1,17 @@
+i18n_title: bluetooth.bluetooth_devices_report
+not_null_column: device_address
+js_link: module/bluetooth/js/bluetooth
+table:
+  - column: machine.computer_name
+    i18n_header: listing.computername
+    formatter: clientDetail
+  - column: reportdata.serial_number
+    i18n_header: serial
+  - {i18n_header: bluetooth.device_name, column: bluetooth.device_name}
+  - {i18n_header: bluetooth.device_address, column: bluetooth.device_address}
+  - {i18n_header: bluetooth.isconnected, column: bluetooth.isconnected, formatter: binaryYesNo}
+  - {i18n_header: bluetooth.rssi, column: bluetooth.rssi}
+  - {i18n_header: bluetooth.batterypercent, column: bluetooth.batterypercent, formatter: formatBluetoothPercentage}
+  - {i18n_header: bluetooth.manufacturer, column: bluetooth.manufacturer}
+  - {i18n_header: bluetooth.majorclass, column: bluetooth.majorclass}
+  - {i18n_header: bluetooth.minorclass, column: bluetooth.minorclass}
