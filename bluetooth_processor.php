@@ -30,7 +30,7 @@ class Bluetooth_processor extends Processor
 
         $save_list = [];
         foreach ($parser->toArray() as $btdevice) {
-            $save_list[] = array_replace($fillable, $btdevice);
+            $save_list[] = array_replace($fillable, array_intersect_key($btdevice, $fillable));
         }
 
         Bluetooth_model::insertChunked($save_list);
