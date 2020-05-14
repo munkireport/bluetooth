@@ -5,6 +5,7 @@ table:
   - column: machine.computer_name
     i18n_header: listing.computername
     formatter: clientDetail
+    tab_link: bluetooth-tab
   - column: reportdata.serial_number
     i18n_header: serial
   - {i18n_header: bluetooth.device_name, column: bluetooth.device_name}
