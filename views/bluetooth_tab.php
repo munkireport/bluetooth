@@ -32,14 +32,15 @@ $(document).on('appReady', function(){
                 var detail_rows = ''
 
                 for (var prop in d){
+
                     // Blank empty rows
-                    if(d[prop] == '' || d[prop] == null){
+                    if(d[prop] !== 0 && d[prop] == '' || d[prop] == null){
                         inforows = inforows
                     }
                     else if(prop == 'machine_address' || prop == 'hardware_transport' || prop == 'machine_name' || prop == 'vendor_id'){
                        inforows = inforows + '<tr><th>'+i18n.t('bluetooth.'+prop)+'</th><td>'+d[prop]+'</td></tr>';
                     } 
-                    
+
                     else if( prop == 'power' && d[prop] == -1){
                        $('#bluetooth-msg').text(i18n.t('bluetooth.no_bluetooth'));
                        $('#bluetooth-cnt').text('')
@@ -88,7 +89,7 @@ $(document).on('appReady', function(){
                        devicerows = devicerows + '<tr><th>'+i18n.t('bluetooth.'+prop)+'</th><td>'+i18n.t('no')+'</td></tr>';
                     }
                 }
-                
+
                 // Fill in the client detail widget
                 $('#mr-bluetooth-table').append(detail_rows)
 
@@ -100,15 +101,19 @@ $(document).on('appReady', function(){
                         .append($('<tbody>')
                             .append(inforows))))
 
-				.append($('<h4>')
-					.append($('<i>')
-						.addClass('fa fa-bluetooth'))
-					.append(' '+d.device_name))
-                .append($('<div style="max-width:450px;">')
-                    .append($('<table>')
-                        .addClass('table table-striped table-condensed')
-                        .append($('<tbody>')
-                            .append(devicerows))))
+                // Only show Bluetooth devices if they exist
+                if (d.device_name){
+                    $('#bluetooth-tab')
+                    .append($('<h4>')
+                        .append($('<i>')
+                            .addClass('fa fa-bluetooth'))
+                        .append(' '+d.device_name))
+                    .append($('<div style="max-width:450px;">')
+                        .append($('<table>')
+                            .addClass('table table-striped table-condensed')
+                            .append($('<tbody>')
+                                .append(devicerows))))
+                }
             })
         }
 	});

@@ -31,10 +31,14 @@ def flatten_bluetooth_info(obj):
     # Check if there is Bluetooth hardware
     try:
         obj['device_title']
+        obj_device = obj['device_title']
     except:
-        return [{'power':-1}]
+            try:
+                obj['local_device_title']
+                obj_device = [{'blank_item':'blank_item'}]
+            except:
+                return [{'power':-1}]
 
-    obj_device = obj['device_title']
 
     for bt_device in obj_device:
         for item in bt_device:
@@ -42,7 +46,8 @@ def flatten_bluetooth_info(obj):
             for item_att in bt_device[item]:
 
                 # Set name of device
-                device['device_name'] = item
+                if item is not 'blank_item':
+                    device['device_name'] = item
 
                 if i == 0:
                     device['apple_bluetooth_version'] = obj['apple_bluetooth_version']
@@ -80,8 +85,8 @@ def flatten_bluetooth_info(obj):
 
                         elif item_local == 'general_vendorID':
                             device['vendor_id'] = obj_local[item_local]
-                
-                
+
+
                 if item_att == 'device_addr':
                     device['device_address'] = bt_device[item][item_att]
                 elif item_att == 'device_RSSI':
@@ -115,19 +120,9 @@ def to_bool(s):
         return 1
     else:
         return 0
-    
+
 def main():
     """Main"""
-    # Create cache dir if it does not exist
-    cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
-    if not os.path.exists(cachedir):
-        os.makedirs(cachedir)
-
-    # Skip manual check
-    if len(sys.argv) > 1:
-        if sys.argv[1] == 'manualcheck':
-            print 'Manual check: skipping'
-            exit(0)
 
     # Set the encoding
     # The "ugly hack" :P 
@@ -139,6 +134,7 @@ def main():
     result = flatten_bluetooth_info(get_bluetooth_info())
 
     # Write memory results to cache
+    cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
     output_plist = os.path.join(cachedir, 'bluetoothinfo.plist')
     plistlib.writePlist(result, output_plist)
 #    print plistlib.writePlistToString(result)
